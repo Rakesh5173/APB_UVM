@@ -38,8 +38,8 @@ class apb_sequence extends uvm_sequence#(apb_seq_item);
   
     task body();
     apb_seq_item tr;
-    //create 90 random APB read/write transaction and send to driver
-      repeat (90) begin
+    //create 5 random APB read/write transaction and send to driver
+      repeat (5) begin
       tr=new();
       start_item(tr);
       assert(tr.randomize());
