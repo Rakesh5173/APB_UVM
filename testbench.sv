@@ -12,16 +12,17 @@
 // 	DUT connections
 // Initial block: calling run_test() starting the execution of UVM phases.
 `timescale 1ns/1ns
-import uvm_pkg::*;
+
 `include "uvm_macros.svh"
 `include "my_testbench_pkg.svh"
-// import my_testbench_pkg::*;
 
+import uvm_pkg::*;
+import my_testbench_pkg::*;
 
 
 module top;
 //   import uvm_pkg::*;
-  import my_testbench_pkg::*;
+  
   logic pclk;
   logic prst;
   logic [31:0] paddr;
@@ -49,7 +50,7 @@ module top;
   end
   
   always begin
-      #10 apb_if.pclk = ~apb_if.pclk; 
+      #5 apb_if.pclk = ~apb_if.pclk; 
   end
   
   initial begin
