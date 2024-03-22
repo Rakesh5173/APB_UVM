@@ -8,6 +8,6 @@ package my_testbench_pkg;
 `include "apb_env.sv"
 `include "apb_sequence.sv"
 `include "apb_test.sv"
-// `include "interface.sv"
+`include "apb_interface.sv"
 
 endpackage
