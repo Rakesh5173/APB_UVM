@@ -40,8 +40,8 @@ class apb_driver extends uvm_driver#(apb_seq_item);
       @(this.vif.master_clk)
       //       drv getting item from seq_item
       seq_item_port.get_next_item(req);
-//       uvm_info("apb_driver","Got new item");
-      uvm_report_info("APB_DRIVER ", $psprintf("Got Transaction %s",req.convert2string()));
+      //       uvm_info("apb_driver", "Got new item");
+      uvm_report_info("APB_DRIVER ", "Got Transaction");
  
 //       send_to_dut(req);
       case (req.pwrite) 
@@ -55,8 +55,6 @@ class apb_driver extends uvm_driver#(apb_seq_item);
   endtask
   
   virtual protected task drv_read(input bit [31:0] addr, output logic [31:0] data);
-    uvm_report_info("APB_DRIVER ", $psprintf("address %d",addr));
-    uvm_report_info("APB_DRIVER ", $psprintf("data %d",data));
     this.vif.master_clk.paddr<= addr;
     this.vif.master_clk.pwrite <= 0;
     this.vif.master_clk.psel<= 1;
@@ -72,8 +70,6 @@ class apb_driver extends uvm_driver#(apb_seq_item);
   endtask
   
   virtual protected task drv_write(input bit [31:0]addr, input bit [31:0] data); // sending data and addr so input bit
-    uvm_report_info("APB_DRIVER ", $psprintf("address %d",addr));
-    uvm_report_info("APB_DRIVER ", $psprintf("data %d",data));
     this.vif.master_clk.paddr <= addr;
      // writing data
     this.vif.master_clk.pwdata <= data;
