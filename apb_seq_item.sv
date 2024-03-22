@@ -32,9 +32,6 @@ class apb_seq_item extends uvm_sequence_item;
     super.new(name);
   endfunction
   
-  function string convert2string();
-    return $psprintf("pwrite=%s addr=%h data=%h",pwrite,addr,data);
-  endfunction
   
 endclass
   
